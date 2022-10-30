@@ -2,9 +2,12 @@ var rp = require("request-promise");
 
 var apiKey = "O+Pe+i+97g5AJTkg";
 
+// var selectedState =
+
 // See if Medicaid can cover abortion in Virginia
 rp({
   uri: "http://api.abortionpolicyapi.com/v1/insurance_coverage/states/VA",
+  // uri: "http://api.abortionpolicyapi.com/v1/insurance_coverage/states/ + selectedState ",
   method: "GET",
   headers: { token: apiKey },
   json: true,
@@ -25,7 +28,6 @@ rp({
           return key.split("_").slice(2).join(" ");
         })
         .join(", ");
-      message += "\n(The API data are not currently optimized for grammar.)";
       console.log(message);
     }
   })
