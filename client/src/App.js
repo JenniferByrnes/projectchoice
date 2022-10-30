@@ -8,13 +8,19 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-import Home from './pages/Home';
+import "./App.css";
+import Homepage from "./pages/Homepage/homepage";
+import Contact from "./pages/Contact/contact";
+import About from "./pages/About/about";
+import Nav from "./components/Nav/index";
+import Footer from "./components/Footer";
+
+import Shop from './pages/Shop/shop';
 import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Success from './pages/Success';
-import Nav from './components/Nav';
 
 import { StoreProvider } from "./utils/GlobalState";
 import OrderHistory from './pages/OrderHistory';
@@ -46,10 +52,10 @@ function App() {
           <StoreProvider>
             <Nav />
             <Routes>
-              <Route
-                path="/"
-                element={<Home />}
-              />
+            <Route path="/" element={<Homepage />} />
+            <Route path="/contact" element={<Contact />} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/about" element={<About />} />
               <Route
                 path="/login"
                 element={<Login />}
@@ -75,6 +81,7 @@ function App() {
                 element={<NoMatch />}
               />
             </Routes>
+            <Footer />
           </StoreProvider>
         </div>
       </Router>
